@@ -8,6 +8,8 @@ let menuSelect = document.getElementById("menu-select");
 let container = document.getElementById("container");
 let nameCountSpan = document.getElementById("name-count");
 
+
+
 // Initialize Array of Character Objects from json file
 let babyData = [];
 fetch("baby-names-data.json")
@@ -21,6 +23,7 @@ goBtn.addEventListener("click", goBtnClicked);
 function goBtnClicked() {
   // Get Menu Selection
   let selection = menuSelect.value;
+
 
   // Process Menu Selection
   if (selection === "display-all") {
@@ -38,6 +41,11 @@ function goBtnClicked() {
 
 // Display All Baby Names
 function displayAll() {
+
+  for (let i = 0; i < babyData.length; i++){
+    container.innerHTML += `${babyData[i].name} (Rank:${babyData[i].rank}, Gender:${babyData[i].gender})`;
+  }
+  
   console.log("Display All");
   // Confirm data load
   console.log(babyData);
