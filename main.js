@@ -43,9 +43,10 @@ function goBtnClicked() {
 function displayAll() {
 
   for (let i = 0; i < babyData.length; i++){
-    container.innerHTML += `${babyData[i].name} (Rank:${babyData[i].rank}, Gender:${babyData[i].gender})`;
+    let Data = babyData[i];
+    container.innerHTML += `${Data.name} (Rank:${Data.rank}, Gender:${Data.gender})`;
   }
-  
+ 
   console.log("Display All");
   // Confirm data load
   console.log(babyData);
