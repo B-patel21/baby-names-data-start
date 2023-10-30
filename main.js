@@ -6,7 +6,7 @@
 let goBtn = document.getElementById("go-btn");
 let menuSelect = document.getElementById("menu-select");
 let container = document.getElementById("container");
-let nameCountSpan = document.getElementById("name-count");
+let nameCountSpan = document.getElementById("namecount");
 
 
 
@@ -46,6 +46,7 @@ function displayAll() {
     let Data = babyData[i];
     container.innerHTML += `${Data.name} (Rank:${Data.rank}, Gender:${Data.gender})`;
   }
+  nameCountSpan.innerHTML = `${babyData.length}`;
  
   console.log("Display All");
   // Confirm data load
