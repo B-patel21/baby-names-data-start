@@ -55,34 +55,37 @@ function displayAll() {
 
 // Display Names by Gender
 function searchGender() {
-  let targetGender = prompt("Search By Gender");
-let targetCount = 0;
-for (let i = 0; i < babyData.length; i++){
-  let Data = babyData[i]; 
+  let targetGender = prompt("Search By Gender").toLowerCase();
+  let targetCount = 0;
 
-  if (Data.gender[0] === targetGender){
-    targetCount++;
-    container.innerHTML += `${Data.gender}<br />`;
+  for (let i = 0; i < babyData.length; i++) {
+    let Data = babyData[i];
+
+    if (Data.gender.toLowerCase() === targetGender) {
+      targetCount++;
+      container.innerHTML += `${Data.name} (Rank:${Data.rank}, Gender:${Data.gender})<br />`;
+    }
   }
-}
-nameCountSpan.innerHTML += `${targetCount}`;
+  nameCountSpan.innerHTML = `${targetCount}`;
   console.log("Search By Gender");
 }
 
 
 // Display Names within a Range of Ranks
 function searchRank() {
-  let targetRank = prompt("Search By Rank");
-  let targetCount = 0;
+  let maxRank = prompt("Enter Maximum Rank");
+  let minRank = prompt("Enter Minimum Rank");
+  let targetCount = 0;  
   for (let i = 0; i < babyData.length; i++){
     let Data = babyData[i]; 
   
-    if (Data.rank >= targetRank  || Data.rank <= targetRank){
+    if (Data.rank >= minRank && Data.rank <= maxRank){
       targetCount++;
-      container.innerHTML += `${Data.rank}<br />`;
+      container.innerHTML += `${Data.name} (Rank:${Data.rank}, Gender:${Data.gender})<br />`;
     }
   }
-nameCountSpan.innerHTML += `${targetCount}`;
+
+  nameCountSpan.innerHTML = `${targetCount}`;
   console.log("Search By Rank");
 }
 
@@ -105,16 +108,19 @@ nameCountSpan.innerHTML += `${targetCount}`;
 
 // Display Names with a Specific Length
 function searchLength() {
-  let targetLength = prompt("Search by Name Length");
-let targetCount = 0;
-for (let i = 0; i < babyData.length; i++){
-  let Data = babyData[i]; 
+  let targetLength = parseInt(prompt("Search by Name Length"));
+  let targetCount = 0;
 
-  if (Data.name[0] === targetLength){
-    targetCount++;
-    container.innerHTML += `${Data.name}<br />`;
+
+  for (let i = 0; i < babyData.length; i++) {
+    let Data = babyData[i];
+
+    if (Data.name.length === targetLength) {
+      targetCount++;
+      container.innerHTML += `${Data.name}(Rank:${Data.rank}, Gender:${Data.gender})<br />`;
+    }
   }
-}
-nameCountSpan.innerHTML += `${targetCount}`;
+
+  nameCountSpan.innerHTML = `${targetCount}`;
   console.log("Search by Name Length");
 }
