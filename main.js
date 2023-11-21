@@ -109,7 +109,7 @@ nameCountSpan.innerHTML += `${targetCount}`;
 
 // Display Names with a Specific Length
 function searchLength() {
-  let targetLength = parseInt(prompt("Search by Name Length"));
+  let targetLength = prompt("Search by Name Length");
   let targetCount = 0;
 
 
