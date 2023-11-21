@@ -97,9 +97,10 @@ let targetCount = 0;
 for (let i = 0; i < babyData.length; i++){
   let Data = babyData[i]; 
 
-  if (Data.name[0] === targetLetter){
+  // if (Data.name[0] === targetLetter){
+if(Data.name.startsWith(targetLetter)){
     targetCount++;
-    container.innerHTML += `${Data.name}<br />`;
+    container.innerHTML += `${Data.name} (Rank:${Data.rank}, Gender:${Data.gender})<br />`;
   }
 }
 nameCountSpan.innerHTML += `${targetCount}`;
